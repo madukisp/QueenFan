@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Presente Surpresa para Alicia</title>
+    <title>Queen Fan</title>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <link rel="stylesheet" href="estilos.css">
     <link rel="preconnect" href="https://fonts.gstatic.com">
@@ -12,78 +12,55 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
     <script src="scripts.js"></script>
-
 </head>
 <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <a class="navbar-brand" href="#">Fã Clube Freddie Mercury</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Alterna navegação">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav justify-content-center">
+                <li class="nav-item active">
+                    <a class="nav-link" href="home.html">Início</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="carreira.html">Carreira</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="pessoal.html">Pessoal</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="discografia.html">Discografia</a>
+                </li>
+            </ul>
+        </div>
+        
+    </nav>
+
     <div class="container">
         <div class="row">
-            <div class="col text-center my-5">
-                <h1 class="text-white">Presente Surpresa para Alicia</h1>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-md-6 offset-md-3">
-                <div id="pergunta" class="form-group">
-                    <label id="perguntaLabel"></label>
-                    <input type="text" class="form-control" id="resposta">
+            <div class="col">
+                <div class="imagem-container">
+                    <img id="imagem" src="./img/logo.png" alt="Imagem Freddie Mercury" class="img-fluid">
                 </div>
-                <button type="button" class="btn btn-primary" onclick="verificarResposta()">Enviar</button>
+                <div class="titulo-container text-center">
+                    <h1 class="text-white mt-3">Fã Clube Freddie Mercury</h1>
+                </div>
             </div>
         </div>
     </div>
 
-    <script>
-        let perguntas = [
-            { pergunta: "Qual o nome verdadeiro de Freddie Mercury?", resposta: "Farrokh Bulsara" },
-            { pergunta: "Em que país Freddie Mercury nasceu?", resposta: "Tanzânia" },
-            { pergunta: "Em que ano Freddie Mercury faleceu?", resposta: "1991" },
-            { pergunta: "Quantos anos Freddie Mercury tinha quando se juntou à banda Queen?", resposta: "24" },
-            { pergunta: "Qual a música mais famosa da banda Queen?", resposta: "Bohemian Rhapsody" },
-            { pergunta: "Qual era o signo do Freddie?", resposta: "virgem" },
-            
-        ];
+    <footer class="footer bg-dark text-white">
+        <div class="container">
+            <audio id="audio" src="./mp3/Queen - We Will Rock You.mp3" controls autoplay style="display: block; margin: 10px auto; background-color: black;"></audio>
+            <p class="text-center">&copy; 2023 Fã Clube Freddie Mercury. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+    
+    
 
-        let indexPerguntaAtual = 0;
-        let perguntaAtual = perguntas[indexPerguntaAtual];
-        let perguntaLabel = document.getElementById("perguntaLabel");
-        let respostaInput = document.getElementById("resposta");
-
-        function mostrarPergunta() {
-            perguntaLabel.innerHTML = perguntaAtual.pergunta;
-            respostaInput.value = "";
-        }
-
-        function verificarResposta() {
-            let resposta = respostaInput.value;
-            if (resposta.toLowerCase() === perguntaAtual.resposta.toLowerCase()) {
-                indexPerguntaAtual++;
-                if (indexPerguntaAtual < perguntas.length) {
-                    perguntaAtual = perguntas[indexPerguntaAtual];
-                    mostrarPergunta();
-                    alert("Parabéns! Você acertou! Clique em OK para avançar para a próxima pergunta.");
-                } else {
-                    alert("Parabéns! Você acertou todas as perguntas! Clique em OK para acessar o presente surpresa.");
-                    window.location.href = "home.html";
-                }
-            } else {
-                alert("Resposta incorreta. Tente novamente.");
-            }
-        }
-
-        function mostrarPergunta() {
-            perguntaLabel.textContent = perguntaAtual.pergunta;
-            respostaInput.value = "";
-        }
-
-        respostaInput.addEventListener("keyup", function(event) {
-            if (event.key === "Enter") {
-                verificarResposta();
-            }
-            });
-
-
-        mostrarPergunta();
-
-    </script>
 </body>
 </html>
